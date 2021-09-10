@@ -4,7 +4,6 @@ title: About Me
 permalink: /about/
 ---
 
-## Hi there,
 ![]({{site.baseurl}}/images/hi_hand.png)
 
 My name is Enobong Nkpoikana Udoh. I am an MBA graduate from the university of Aberdeen, Scotland with a Bachelor of Science degree in Management Information Systems.
