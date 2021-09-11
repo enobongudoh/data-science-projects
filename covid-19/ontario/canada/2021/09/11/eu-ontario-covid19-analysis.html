@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Effectiveness of Covid-19 management and preventative measures in Ontario, Canada. | Data Science Portfolio</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="Effectiveness of Covid-19 management and preventative measures in Ontario, Canada." />
+<meta name="author" content="Enobong Udoh" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="An analysis of how Ontario’s covid-19 eradication strategy compares to it’s reality." />
+<meta property="og:description" content="An analysis of how Ontario’s covid-19 eradication strategy compares to it’s reality." />
+<link rel="canonical" href="https://enobongudoh.github.io/data-science-projects/covid-19/ontario/canada/2021/09/11/eu-ontario-covid19-analysis.html" />
+<meta property="og:url" content="https://enobongudoh.github.io/data-science-projects/covid-19/ontario/canada/2021/09/11/eu-ontario-covid19-analysis.html" />
+<meta property="og:site_name" content="Data Science Portfolio" />
+<meta property="og:image" content="https://enobongudoh.github.io/data-science-projects/images/project_thumbnails/ontario_covid.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-09-11T00:00:00-05:00" />
+<script type="application/ld+json">
+{"datePublished":"2021-09-11T00:00:00-05:00","url":"https://enobongudoh.github.io/data-science-projects/covid-19/ontario/canada/2021/09/11/eu-ontario-covid19-analysis.html","@type":"BlogPosting","image":"https://enobongudoh.github.io/data-science-projects/images/project_thumbnails/ontario_covid.png","headline":"Effectiveness of Covid-19 management and preventative measures in Ontario, Canada.","dateModified":"2021-09-11T00:00:00-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://enobongudoh.github.io/data-science-projects/covid-19/ontario/canada/2021/09/11/eu-ontario-covid19-analysis.html"},"author":{"@type":"Person","name":"Enobong Udoh"},"description":"An analysis of how Ontario’s covid-19 eradication strategy compares to it’s reality.","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/data-science-projects/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://enobongudoh.github.io/data-science-projects/feed.xml" title="Data Science Portfolio" /><link rel="shortcut icon" type="image/x-icon" href="/data-science-projects/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/data-science-projects/">Data Science Portfolio</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/data-science-projects/about/">About Me</a><a class="page-link" href="/data-science-projects/search/">Search</a><a class="page-link" href="/data-science-projects/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Effectiveness of Covid-19 management and preventative measures in Ontario, Canada.</h1><p class="page-description">An analysis of how Ontario's covid-19 eradication strategy compares to it's reality.</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2021-09-11T00:00:00-05:00" itemprop="datePublished">
+        Sep 11, 2021
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">Enobong Udoh</span></span>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      11 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/data-science-projects/categories/#Covid-19">Covid-19</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/data-science-projects/categories/#Ontario">Ontario</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/data-science-projects/categories/#Canada">Canada</a>
+        
+      
+      </p>
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-wrap flex-justify-end">
+          <div class="px-2">
+
+    <a href="https://github.com/enobongudoh/data-science-projects/tree/master/_notebooks/2021-09-11-eu-ontario-covid19-analysis.ipynb" role="button" target="_blank">
+<img class="notebook-badge-image" src="/data-science-projects/assets/badges/github.svg" alt="View On GitHub">
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://mybinder.org/v2/gh/enobongudoh/data-science-projects/master?filepath=_notebooks%2F2021-09-11-eu-ontario-covid19-analysis.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/data-science-projects/assets/badges/binder.svg" alt="Open In Binder"/>
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://colab.research.google.com/github/enobongudoh/data-science-projects/blob/master/_notebooks/2021-09-11-eu-ontario-covid19-analysis.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/data-science-projects/assets/badges/colab.svg" alt="Open In Colab"/>
+    </a>
+</div>
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#Project-motivation-and-background">Project motivation and background </a></li>
+<li class="toc-entry toc-h2"><a href="#Data-collection">Data collection </a></li>
+<li class="toc-entry toc-h2"><a href="#Data-Preparation">Data Preparation </a></li>
+<li class="toc-entry toc-h2"><a href="#Data-Exploration">Data Exploration </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#Is-there-an-observable-relationship-between-the-reported-covid-activities-and-the-proposed-medical-solution-i.e.-vaccination?">Is there an observable relationship between the reported covid activities and the proposed medical solution i.e. vaccination? </a></li>
+<li class="toc-entry toc-h3"><a href="#Is-there-an-influence-on-the-number-of-reported-cases-in-ontario-by-people's-activities-across-the-days-of-the-week?">Is there an influence on the number of reported cases in ontario by people&#39;s activities across the days of the week? </a></li>
+<li class="toc-entry toc-h3"><a href="#With-the-government's-vaccination-plan,-preference-was-given-to-adults-who-were-70-and-over-first,-as-well-as-those-considered-medically-compromised.-Was-this-as-a-result-of-the-significance-in-the-number-of-confirmed-positive-cases-in-the-age-group-70-and-above?">With the government&#39;s vaccination plan, preference was given to adults who were 70 and over first, as well as those considered medically compromised. Was this as a result of the significance in the number of confirmed positive cases in the age group 70 and above? </a></li>
+<li class="toc-entry toc-h3"><a href="#How-does-the-proportion-of-affected-groups-compare-with-the-those-getting-vaccinated?">How does the proportion of affected groups compare with the those getting vaccinated? </a></li>
+<li class="toc-entry toc-h3"><a href="#How-has-the-pandemic-impacted-the-community's-mobility?--Is-there-an-observable-effect-on-the-number-of-cases-in-the-province?">How has the pandemic impacted the community&#39;s mobility?  Is there an observable effect on the number of cases in the province? </a></li>
+<li class="toc-entry toc-h3"><a href="#Conclusions-from-exploratory-analysis">Conclusions from exploratory analysis </a></li>
+<li class="toc-entry toc-h3"><a href="#Recommendations:">Recommendations: </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#Data-Modelling">Data Modelling </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#Observations:">Observations: </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#Model-Validation">Model Validation </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#Observations:">Observations: </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#Acknowledgements:">Acknowledgements: </a></li>
+</ul><!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2021-09-11-eu-ontario-covid19-analysis.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Project-motivation-and-background">
+<a class="anchor" href="#Project-motivation-and-background" aria-hidden="true"><span class="octicon octicon-link"></span></a>Project motivation and background<a class="anchor-link" href="#Project-motivation-and-background"> </a>
+</h2>
+<p>Covid-19 is an infectious respiratory diseases caused by the newly discovered Coronavirus. The novel virus, also known as SARS-CoV-2 (severe acute respiratory syndrome coronavirus 2, formerly called 2019-nCoV), is a family of viruses popularized by their spiky crown. The virus was first detected amid an outbreak of respiratory illness cases in Wuhan City, China and was initially reported by World Health Organization on the 31st of December 2019.</p>
+<p>In this work, exploratory analysis is carried out to assess the impact of Ontario's Covid preventative solutions and restrictive measures (mobility), on the daily changes in covid cases.</p>
+<p>In particular, this project will explore the following lines of inquiry with the help of a number of publicly accessible data sets:</p>
+<ol>
+<li>
+<p>Is there an observable relationship between the reported covid activities and the proposed medical solution i.e. vaccination?</p>
+</li>
+<li>
+<p>Is there an influence on the number of reported cases in ontario by people's activities across the days of the week?</p>
+</li>
+<li>
+<p>With the government's vaccination plan, preference was given to adults who were 70 and over first, as well as those considered medically compromised. Was this as a result of the significance in the number of confirmed positive cases in the age group 70 and above?</p>
+</li>
+<li>
+<p>How does the proportion of affected groups compare with the those getting vaccinated?</p>
+</li>
+<li>
+<p>How has the pandemic impacted the community's mobility?  Is there an observable effect on the number of cases in the province?</p>
+</li>
+</ol>
+<h2 id="Data-collection">
+<a class="anchor" href="#Data-collection" aria-hidden="true"><span class="octicon octicon-link"></span></a>Data collection<a class="anchor-link" href="#Data-collection"> </a>
+</h2>
+<p>The following datasets were identified to fulfill the analysis requirement:</p>
+<ol>
+<li>
+<p>Ontario's Covid-19 Pandemic and Vaccination trends from 25-January-2020 to 17-July-2021 (Primary data)</p>
+<ul>
+<li><a href="https://covid19tracker.ca/vaccinationtracker.html">Data Source</a></li>
+<li>
+<a href="2021-09-10-eu-ontario-data-preparation.ipynb">Data Dictionary</a> </li>
+</ul>
+</li>
+<li>
+<p>Confirmed Positive Cases in cities within Ontario with age</p>
+<ul>
+<li><a href="https://data.ontario.ca/dataset/confirmed-positive-cases-of-covid-19-in-ontario">Data Source</a></li>
+<li><a href="https://data.ontario.ca/dataset/confirmed-positive-cases-of-covid-19-in-ontario">Data Dictionary</a></li>
+</ul>
+</li>
+<li>
+<p>Ontario Vaccination data by age</p>
+<ul>
+<li>
+<a href="https://data.ontario.ca/en/dataset/covid-19-vaccine-data-in-ontario/resource/775ca815-5028-4e9b-9dd4-6975ff1be021">Data Source</a>  </li>
+<li><a href="https://data.ontario.ca/en/dataset/covid-19-vaccine-data-in-ontario">Data Dictionary</a></li>
+</ul>
+</li>
+<li>
+<p>Google Covid-19 mobility report</p>
+<ul>
+<li><a href="https://www.google.com/covid19/mobility/">Data Source</a></li>
+<li><a href="https://www.google.com/covid19/mobility/data_documentation.html?hl=en">Data Dictionary</a></li>
+</ul>
+</li>
+</ol>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Data-Preparation">
+<a class="anchor" href="#Data-Preparation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Data Preparation<a class="anchor-link" href="#Data-Preparation"> </a>
+</h2>
+<p>For this project, to gain a better understanding of the covid-19 related activities in Ontario, the datasets above were cleaned for exploration.</p>
+<ul>
+<li>
+<p>The Ontario's Covid-19 pandemic and vaccination data contained information on the daily changes and totals of covid-19 cases, fatalities, tests, hospitalizations, criticals, recoveries, vaccinations (partial and full) and vaccines distributed, in the province.</p>
+</li>
+<li>
+<p>Confirmed positive cases data contained records of verified cases with fields such as, accurate episode date, case reported date, test reported date, specimen date, age group, client gender and more.</p>
+</li>
+<li>
+<p>Ontario vaccination data by age contained fields such as date, age group, total population, the proportion of each age group's population with at least the first dose and second dose of the vaccine per day.</p>
+</li>
+<li>
+<p>The mobility data from google contained fields such as date and percent changes in movement to retail and recreation, grocery and pharmacy, parks, transit stations, workplaces and residential places. These changes were assessed in comparison to the baseline which was computed by google as the median value, for the corresponding day of the week, during the 5-week period Jan 3, 2020 –Feb 6, 2020</p>
+</li>
+</ul>
+<p>Each data set was reviewed independently. Some columns were renamed and the unused columns were dropped. Each data set was checked for missing values, duplicates and outliers. The missing values were filled where necessary. In the confirmed cases data, only 99.14% of the data was retained as missing values and duplicated information were removed. The data sets were all indexed as time series with a uniform end date of July 17, 2021.
+</p>
+<div class="flash flash-success">
+    <svg class="octicon octicon-checklist octicon octicon-checklist" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2.5 1.75a.25.25 0 01.25-.25h8.5a.25.25 0 01.25.25v7.736a.75.75 0 101.5 0V1.75A1.75 1.75 0 0011.25 0h-8.5A1.75 1.75 0 001 1.75v11.5c0 .966.784 1.75 1.75 1.75h3.17a.75.75 0 000-1.5H2.75a.25.25 0 01-.25-.25V1.75zM4.75 4a.75.75 0 000 1.5h4.5a.75.75 0 000-1.5h-4.5zM4 7.75A.75.75 0 014.75 7h2a.75.75 0 010 1.5h-2A.75.75 0 014 7.75zm11.774 3.537a.75.75 0 00-1.048-1.074L10.7 14.145 9.281 12.72a.75.75 0 00-1.062 1.058l1.943 1.95a.75.75 0 001.055.008l4.557-4.45z"></path></svg>
+    <strong>Tip: </strong><a href="2021-09-08-eu-ontario-data-preparation.ipynb">Tell me more: a deep dive into the data preparation work</a>
+</div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Data-Exploration">
+<a class="anchor" href="#Data-Exploration" aria-hidden="true"><span class="octicon octicon-link"></span></a>Data Exploration<a class="anchor-link" href="#Data-Exploration"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Is-there-an-observable-relationship-between-the-reported-covid-activities-and-the-proposed-medical-solution-i.e.-vaccination?">
+<a class="anchor" href="#Is-there-an-observable-relationship-between-the-reported-covid-activities-and-the-proposed-medical-solution-i.e.-vaccination?" aria-hidden="true"><span class="octicon octicon-link"></span></a>Is there an observable relationship between the reported covid activities and the proposed medical solution i.e. vaccination?<a class="anchor-link" href="#Is-there-an-observable-relationship-between-the-reported-covid-activities-and-the-proposed-medical-solution-i.e.-vaccination?"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="/data-science-projects/images/copied_from_nb/ontario-images/fig_1.png" alt="image_1"></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p></p>
+<div class="flash">
+    <svg class="octicon octicon-info octicon octicon-info octicon octicon-info" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM0 8a8 8 0 1116 0A8 8 0 010 8zm6.5-.25A.75.75 0 017.25 7h1a.75.75 0 01.75.75v2.75h.25a.75.75 0 010 1.5h-2a.75.75 0 010-1.5h.25v-2h-.25a.75.75 0 01-.75-.75zM8 6a1 1 0 100-2 1 1 0 000 2z"></path></svg>
+    <strong>Note: </strong>The correlation between total cases and the totals of other activities is all positive. Total tests has the highest correlation with total cases, with a correlation coefficient of 0.98 and total hospitalizations has the least, with a coefficeint of 0.5
+</div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Is-there-an-influence-on-the-number-of-reported-cases-in-ontario-by-people's-activities-across-the-days-of-the-week?">
+<a class="anchor" href="#Is-there-an-influence-on-the-number-of-reported-cases-in-ontario-by-people's-activities-across-the-days-of-the-week?" aria-hidden="true"><span class="octicon octicon-link"></span></a>Is there an influence on the number of reported cases in ontario by people's activities across the days of the week?<a class="anchor-link" href="#Is-there-an-influence-on-the-number-of-reported-cases-in-ontario-by-people's-activities-across-the-days-of-the-week?"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="/data-science-projects/images/copied_from_nb/ontario-images/fig_2_first.png" alt="image_2_first"></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p></p>
+<div class="flash">
+    <svg class="octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM0 8a8 8 0 1116 0A8 8 0 010 8zm6.5-.25A.75.75 0 017.25 7h1a.75.75 0 01.75.75v2.75h.25a.75.75 0 010 1.5h-2a.75.75 0 010-1.5h.25v-2h-.25a.75.75 0 01-.75-.75zM8 6a1 1 0 100-2 1 1 0 000 2z"></path></svg>
+    <strong>Note: </strong>The heatmap depicts that there is approximately 0 correlation between the days of the weeks and the daily changes covid cases. The correlation between the days of the week and the other covid activities is also really low 
+</div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="/data-science-projects/images/copied_from_nb/ontario-images/fig_2.png" alt="image_2"></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p></p>
+<div class="flash">
+    <svg class="octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM0 8a8 8 0 1116 0A8 8 0 010 8zm6.5-.25A.75.75 0 017.25 7h1a.75.75 0 01.75.75v2.75h.25a.75.75 0 010 1.5h-2a.75.75 0 010-1.5h.25v-2h-.25a.75.75 0 01-.75-.75zM8 6a1 1 0 100-2 1 1 0 000 2z"></path></svg>
+    <strong>Note: </strong>The plots shows that from a cummulative perspective, daily changes in cases fluctuates to an extent across the days of the week but the impact of days on daily total cases is barely noticeable.
+</div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="With-the-government's-vaccination-plan,-preference-was-given-to-adults-who-were-70-and-over-first,-as-well-as-those-considered-medically-compromised.-Was-this-as-a-result-of-the-significance-in-the-number-of-confirmed-positive-cases-in-the-age-group-70-and-above?">
+<a class="anchor" href="#With-the-government's-vaccination-plan,-preference-was-given-to-adults-who-were-70-and-over-first,-as-well-as-those-considered-medically-compromised.-Was-this-as-a-result-of-the-significance-in-the-number-of-confirmed-positive-cases-in-the-age-group-70-and-above?" aria-hidden="true"><span class="octicon octicon-link"></span></a>With the government's vaccination plan, preference was given to adults who were 70 and over first, as well as those considered medically compromised. Was this as a result of the significance in the number of confirmed positive cases in the age group 70 and above?<a class="anchor-link" href="#With-the-government's-vaccination-plan,-preference-was-given-to-adults-who-were-70-and-over-first,-as-well-as-those-considered-medically-compromised.-Was-this-as-a-result-of-the-significance-in-the-number-of-confirmed-positive-cases-in-the-age-group-70-and-above?"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="/data-science-projects/images/copied_from_nb/ontario-images/fig_3.png" alt="image_3"></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p></p>
+<div class="flash">
+    <svg class="octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM0 8a8 8 0 1116 0A8 8 0 010 8zm6.5-.25A.75.75 0 017.25 7h1a.75.75 0 01.75.75v2.75h.25a.75.75 0 010 1.5h-2a.75.75 0 010-1.5h.25v-2h-.25a.75.75 0 01-.75-.75zM8 6a1 1 0 100-2 1 1 0 000 2z"></path></svg>
+    <strong>Note: </strong>The spread of cases is higher amongst people in their 20s.
+</div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="/data-science-projects/images/copied_from_nb/ontario-images/fig_3_1.png" alt="image_3_1"></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p></p>
+<div class="flash">
+    <svg class="octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM0 8a8 8 0 1116 0A8 8 0 010 8zm6.5-.25A.75.75 0 017.25 7h1a.75.75 0 01.75.75v2.75h.25a.75.75 0 010 1.5h-2a.75.75 0 010-1.5h.25v-2h-.25a.75.75 0 01-.75-.75zM8 6a1 1 0 100-2 1 1 0 000 2z"></path></svg>
+    <strong>Note: </strong>In both years, less than 30% of the positive cases were adults over 70 years
+</div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="How-does-the-proportion-of-affected-groups-compare-with-the-those-getting-vaccinated?">
+<a class="anchor" href="#How-does-the-proportion-of-affected-groups-compare-with-the-those-getting-vaccinated?" aria-hidden="true"><span class="octicon octicon-link"></span></a>How does the proportion of affected groups compare with the those getting vaccinated?<a class="anchor-link" href="#How-does-the-proportion-of-affected-groups-compare-with-the-those-getting-vaccinated?"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="/data-science-projects/images/copied_from_nb/ontario-images/fig_4.png" alt="image_4"></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p></p>
+<div class="flash">
+    <svg class="octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM0 8a8 8 0 1116 0A8 8 0 010 8zm6.5-.25A.75.75 0 017.25 7h1a.75.75 0 01.75.75v2.75h.25a.75.75 0 010 1.5h-2a.75.75 0 010-1.5h.25v-2h-.25a.75.75 0 01-.75-.75zM8 6a1 1 0 100-2 1 1 0 000 2z"></path></svg>
+    <strong>Note: </strong>Although those in their 20s and 30s account for more of the covid cases, they fall within the bottom three(3) portions of the pie in terms of partial and full vaccinations.
+</div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="How-has-the-pandemic-impacted-the-community's-mobility?--Is-there-an-observable-effect-on-the-number-of-cases-in-the-province?">
+<a class="anchor" href="#How-has-the-pandemic-impacted-the-community's-mobility?--Is-there-an-observable-effect-on-the-number-of-cases-in-the-province?" aria-hidden="true"><span class="octicon octicon-link"></span></a>How has the pandemic impacted the community's mobility?  Is there an observable effect on the number of cases in the province?<a class="anchor-link" href="#How-has-the-pandemic-impacted-the-community's-mobility?--Is-there-an-observable-effect-on-the-number-of-cases-in-the-province?"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="/data-science-projects/images/copied_from_nb/ontario-images/fig_5_1.png" alt="mobility_image_1"></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="/data-science-projects/images/copied_from_nb/ontario-images/fig_5_2.png" alt="mobility_image_2"></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="/data-science-projects/images/copied_from_nb/ontario-images/fig_5_3.png" alt="mobility_image_3"></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p></p>
+<div class="flash">
+    <svg class="octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM0 8a8 8 0 1116 0A8 8 0 010 8zm6.5-.25A.75.75 0 017.25 7h1a.75.75 0 01.75.75v2.75h.25a.75.75 0 010 1.5h-2a.75.75 0 010-1.5h.25v-2h-.25a.75.75 0 01-.75-.75zM8 6a1 1 0 100-2 1 1 0 000 2z"></path></svg>
+    <strong>Note: </strong>The two major peaks in daily covid case changes were experienced on days where the province was on lockdown and movement to non-essential places did not see a peak. Movement to grocery stores and pharmacies, residential areas and parks for exercise had lower restrictions, thus, mobility mostly stayed around and above the baseline.
+</div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p></p>
+<div class="flash flash-success">
+    <svg class="octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2.5 1.75a.25.25 0 01.25-.25h8.5a.25.25 0 01.25.25v7.736a.75.75 0 101.5 0V1.75A1.75 1.75 0 0011.25 0h-8.5A1.75 1.75 0 001 1.75v11.5c0 .966.784 1.75 1.75 1.75h3.17a.75.75 0 000-1.5H2.75a.25.25 0 01-.25-.25V1.75zM4.75 4a.75.75 0 000 1.5h4.5a.75.75 0 000-1.5h-4.5zM4 7.75A.75.75 0 014.75 7h2a.75.75 0 010 1.5h-2A.75.75 0 014 7.75zm11.774 3.537a.75.75 0 00-1.048-1.074L10.7 14.145 9.281 12.72a.75.75 0 00-1.062 1.058l1.943 1.95a.75.75 0 001.055.008l4.557-4.45z"></path></svg>
+    <strong>Tip: </strong><a href="2021-09-09-eu-ontario-data-exploration.ipynb">Tell me more: a deep dive into the data exploration and analysis work</a>
+</div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Conclusions-from-exploratory-analysis">
+<a class="anchor" href="#Conclusions-from-exploratory-analysis" aria-hidden="true"><span class="octicon octicon-link"></span></a>Conclusions from exploratory analysis<a class="anchor-link" href="#Conclusions-from-exploratory-analysis"> </a>
+</h3>
+<ul>
+<li>
+<p>The data shows that there is correlation between covid activties and the preventive solution - vaccinations. Although levels of correlation differ, total cases has a positive correlation with the totals of other activities.</p>
+<ul>
+<li>Total cases  vs Total fatalities has a correlation of ~0.96</li>
+<li>Total cases  vs Total tests has a correlation of ~0.98</li>
+<li>Total cases  vs Total hospitalizations has a correlation of ~0.50</li>
+<li>Total cases  vs Total criticals has a correlation of ~0.79</li>
+<li>Total cases  vs Total recoveries has a correlation of ~0.99</li>
+<li>Total cases  vs Partial vaccinations has a correlation of ~0.83</li>
+<li>Total cases  vs Full vaccinations has a correlation of ~0.60</li>
+<li>Total cases  vs Vaccines distributed has a correlation of ~0.83</li>
+</ul>
+</li>
+<li>
+<p>While there is a very low correlation between the days of the week and total cases in ontario, a bar plot shows that the daily changes in number of cases tends to differ across the different days of the week but this is insignificant for total cases. From the data, Friday, April 16 2021, is the day with the highest number of cases.</p>
+</li>
+<li>
+<p>Furthermore, although the older population in Ontario are said to have a higher risk of contracting the virus, the data shows that there is a higher number of people testing positive amongst young adults in their 20s and 30s.</p>
+</li>
+<li>
+<p>Despite cases being higher amongst the younger population, as of July 17-2021, vaccination efforts had a higher spread amongst the older population. If events progress at this rate, it will likely slow down the speed with which the province overcomes the pandemic.</p>
+</li>
+<li>
+<p>Additionally, irrespective of activities slowing down and the preventative measures, such as full lockdowns and restricted movements, the number of cases in the province has continued to rise. It can also be noted that daily change in cases saw it's two major peaks during the government imposed stay-at-home order.</p>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Recommendations:">
+<a class="anchor" href="#Recommendations:" aria-hidden="true"><span class="octicon octicon-link"></span></a>Recommendations:<a class="anchor-link" href="#Recommendations:"> </a>
+</h3>
+<p>In the event of future pandemics, to overcome it's impact faster, it is recommended that;</p>
+<ul>
+<li>the large scale public education on hygiene measures such as; washing hands, wearing masks, sanitizing shared spaces etc, should continually be emphasized to minimize the spread of the virus.</li>
+<li>the general public is continually sensitized on the need to get tested as this would reduce the chances of asymptomatic people spreading the virus.</li>
+<li>the vaccination opportunities should be open to the general public, including the younger population, early. This would potentially improve the quality of results derived from the solution.</li>
+<li>Analyse the impact of mobility restriction measures periodically to determine how viable that solution is. If cases tend to increase drastically at the end of lockdowns, it might be due to asymtomatic carriers suddenly mixing up with others whenever some degree of freedom is allowed. </li>
+<li>Explore limiting capacity as opposed to full lockdowns during a pandemic. This would likely decrease the sudden excitement for everyone to be outside at the same time and would increase the possibility of knowing who was where and when. E.g: via the barcode registrations required by some enclosed spaces presently.</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Data-Modelling">
+<a class="anchor" href="#Data-Modelling" aria-hidden="true"><span class="octicon octicon-link"></span></a>Data Modelling<a class="anchor-link" href="#Data-Modelling"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Regression algorithms were used in modelling data from the primary dataset as the data is continuous. </li>
+<li>The prediction target is daily total cases and predictor variables used are daily total tests and changes in partial vaccinations. These features were selected as they had a correlation coeffiction &gt; 0.75 with the target.</li>
+<li>To support training and testing the model, the data was split into 2, a test_size of 30% and train_size of 70%.</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="/data-science-projects/images/copied_from_nb/ontario-images/fig_model_first.png" alt="data_modelling_image"></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Observations:">
+<a class="anchor" href="#Observations:" aria-hidden="true"><span class="octicon octicon-link"></span></a>Observations:<a class="anchor-link" href="#Observations:"> </a>
+</h3>
+<ul>
+<li>
+<p>The Linear regression model had an approximate accuracy score of 0.982. After model fitting, the model was used to predict total cases, given the the test features and the  R-squared error was approximately 0.9815.</p>
+</li>
+<li>
+<p>validating the model using statsmodel.formala.api, an R-squared score of approximately 0.982 was also obtained and the confidence level of prediction accuracy is 97.5%.</p>
+</li>
+<li>
+<p>Based on the linear regression model, it can be interpreted that for every case increase in the total number of cases in ontario, there'll be aproximately a 0.799 increase in partial vaccinations and a 0.025 increase in total tests.</p>
+</li>
+<li>
+<p>Mathematically:</p>
+<p><code>total_cases = -11860.454 + (0.799 * change_vaccinations) +  (0.025 * total_tests)</code></p>
+</li>
+<li>
+<p>The decision tree regressor algorithm was also explored for prediction. This model shows that it has better prediction abilities with an R-squared score of 0.993 and lower mean errors (MAE and MSE) for it's prediction on the test data, in comparison to linear regression.</p>
+</li>
+<li>
+<p>Further attempt to predict total cases per day was done using random forest regressor. This model was shown to have a higher accuracy score and lower mean errors than the previous models (<strong><code>Recommended</code></strong>). 
+</p>
+<div class="flash flash-success">
+    <svg class="octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2.5 1.75a.25.25 0 01.25-.25h8.5a.25.25 0 01.25.25v7.736a.75.75 0 101.5 0V1.75A1.75 1.75 0 0011.25 0h-8.5A1.75 1.75 0 001 1.75v11.5c0 .966.784 1.75 1.75 1.75h3.17a.75.75 0 000-1.5H2.75a.25.25 0 01-.25-.25V1.75zM4.75 4a.75.75 0 000 1.5h4.5a.75.75 0 000-1.5h-4.5zM4 7.75A.75.75 0 014.75 7h2a.75.75 0 010 1.5h-2A.75.75 0 014 7.75zm11.774 3.537a.75.75 0 00-1.048-1.074L10.7 14.145 9.281 12.72a.75.75 0 00-1.062 1.058l1.943 1.95a.75.75 0 001.055.008l4.557-4.45z"></path></svg>
+    <strong>Tip: </strong><a href="2021-09-10-eu-ontario-data-modelling-validation.ipynb">Tell me more: a deep dive into the data modelling work</a>
+</div>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Model-Validation">
+<a class="anchor" href="#Model-Validation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Model Validation<a class="anchor-link" href="#Model-Validation"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>A 5-set kfold split was done to derive 5 distinct arrangements of a dataframe containing a prediction target and predictors. Each set contained a split of data for training and testing.</li>
+<li>Testing on a linear regression model,<code>set_1</code>, derived from the split, made the best predictions of the 5. </li>
+<li>
+<p>Mathematically, for set_1:</p>
+<p><code>total_cases = -11660.203 + (0.860 * change_vaccinations) +  (0.025 * total_tests)</code></p>
+</li>
+<li>
+<p>Others models were explored using only X and y from <code>set 1</code></p>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="/data-science-projects/images/copied_from_nb/ontario-images/fig_modelling.png" alt="model_validation_image"></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Observations:">
+<a class="anchor" href="#Observations:" aria-hidden="true"><span class="octicon octicon-link"></span></a>Observations:<a class="anchor-link" href="#Observations:"> </a>
+</h3>
+<ul>
+<li>
+<p>The linear regression model has an accuracy score of approximately 0.9771</p>
+</li>
+<li>
+<p>With the decision tree regressor, the prediction accuracy score (r-squared) improved from what was observed with linear regression to ~ 0.9991</p>
+</li>
+<li>
+<p>This even got better with the random forest regressor model, where the r-squared score was computed as ~ 0.9998.</p>
+</li>
+<li>
+<p>In both decision tree and random forest regressors, the errors metrices with set_1 are lower than what was observed with the train_test_split data.</p>
+</li>
+<li>
+<p>However, random forest model made predictions with the least amount of errors across the 3 models and is recommended.
+</p>
+<div class="flash flash-success">
+    <svg class="octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2.5 1.75a.25.25 0 01.25-.25h8.5a.25.25 0 01.25.25v7.736a.75.75 0 101.5 0V1.75A1.75 1.75 0 0011.25 0h-8.5A1.75 1.75 0 001 1.75v11.5c0 .966.784 1.75 1.75 1.75h3.17a.75.75 0 000-1.5H2.75a.25.25 0 01-.25-.25V1.75zM4.75 4a.75.75 0 000 1.5h4.5a.75.75 0 000-1.5h-4.5zM4 7.75A.75.75 0 014.75 7h2a.75.75 0 010 1.5h-2A.75.75 0 014 7.75zm11.774 3.537a.75.75 0 00-1.048-1.074L10.7 14.145 9.281 12.72a.75.75 0 00-1.062 1.058l1.943 1.95a.75.75 0 001.055.008l4.557-4.45z"></path></svg>
+    <strong>Tip: </strong><a href="2021-09-10-eu-ontario-data-modelling-validation.ipynb">Tell me more: a deep dive into the data modelling work</a>
+</div>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Acknowledgements:">
+<a class="anchor" href="#Acknowledgements:" aria-hidden="true"><span class="octicon octicon-link"></span></a>Acknowledgements:<a class="anchor-link" href="#Acknowledgements:"> </a>
+</h2>
+<ul>
+<li>I acknowledge that this is my first data science project, completed at the end of a 10 weeks part-time course and some concepts may not be presented as a seasoned professional in the field.</li>
+<li>I also acknowledge that Ontario is a large province with rural and urban cities and this analysis represents the province as a collective hence, it might not mirror the reality of some cities.</li>
+<li>I acknowledge the government and public health unit of Ontario for the publicly accessible data on confirmed positive cases and vaccination activities.</li>
+<li>Noah Little, Covid-19 Tracker Canada, <a href="https://covid19tracker.ca/vaccinationtracker.html">https://covid19tracker.ca/vaccinationtracker.html</a>, Accessed: 2021-07-18</li>
+<li>Google LLC "Google COVID-19 Community Mobility Reports".
+<a href="https://www.google.com/covid19/mobility/">https://www.google.com/covid19/mobility/</a> Accessed: 2021-08-09.</li>
+</ul>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="enobongudoh/data-science-projects"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/data-science-projects/covid-19/ontario/canada/2021/09/11/eu-ontario-covid19-analysis.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/data-science-projects/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/data-science-projects/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/data-science-projects/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>A portfolio of exploratory analysis and data modelling projects.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/enobongudoh" title="enobongudoh"><svg class="svg-icon grey"><use xlink:href="/data-science-projects/assets/minima-social-icons.svg#github"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
