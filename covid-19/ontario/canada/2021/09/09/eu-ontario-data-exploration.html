@@ -81,7 +81,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      25 min read
+      22 min read
     
 </span></p>
 
@@ -126,9 +126,6 @@ window.onload = wrap_img;
 
   <div class="post-content e-content" itemprop="articleBody">
     <ul class="section-nav">
-<li class="toc-entry toc-h2"><a href="#Project-motivation-and-background">Project motivation and background </a></li>
-<li class="toc-entry toc-h2"><a href="#Data-collection">Data collection </a></li>
-<li class="toc-entry toc-h2"><a href="#Data-understanding">Data understanding </a></li>
 <li class="toc-entry toc-h2"><a href="#Importing-project-dependencies">Importing project dependencies </a></li>
 <li class="toc-entry toc-h2"><a href="#Data-Exploration-and-Analysis">Data Exploration and Analysis </a>
 <ul>
@@ -152,120 +149,6 @@ window.onload = wrap_img;
 
 <div class="container" id="notebook-container">
         
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Project-motivation-and-background">
-<a class="anchor" href="#Project-motivation-and-background" aria-hidden="true"><span class="octicon octicon-link"></span></a>Project motivation and background<a class="anchor-link" href="#Project-motivation-and-background"> </a>
-</h2>
-<p>Covid-19 is an infectious respiratory diseases caused by the newly discovered Coronavirus. The novel virus, also known as SARS-CoV-2 (severe acute respiratory syndrome coronavirus 2, formerly called 2019-nCoV), is a family of viruses popularized by their spiky crown. The virus was first detected amid an outbreak of respiratory illness cases in Wuhan City, China and was initially reported by World Health Organization on the 31st of December 2019.</p>
-<p>In this work, exploratory analysis is carried out to assess the impact of Ontario's Covid preventative solutions and restrictive measures (mobility), on the daily changes in covid cases.</p>
-<p>In particular, this project will explore the following lines of inquiry with the help of a number of publicly accessible data sets:</p>
-<ol>
-<li>
-<p>Is there an observable relationship between the reported covid activities and the proposed medical solution i.e. vaccination?</p>
-</li>
-<li>
-<p>Is there an influence on the number of reported cases in ontario by people's activities across the days of the week?</p>
-</li>
-<li>
-<p>With the government's vaccination plan, preference was given to adults who were 70 and over first, as well as those considered medically compromised. Was this as a result of the significance in the number of confirmed positive cases in the age group 70 and above?</p>
-</li>
-<li>
-<p>How does the proportion of affected groups compare with the those getting vaccinated?</p>
-</li>
-<li>
-<p>How has the pandemic impacted the community's mobility?  Is there an observable effect on the number of cases in the province?</p>
-</li>
-</ol>
-<h2 id="Data-collection">
-<a class="anchor" href="#Data-collection" aria-hidden="true"><span class="octicon octicon-link"></span></a>Data collection<a class="anchor-link" href="#Data-collection"> </a>
-</h2>
-<p>The following datasets were identified to fulfill the analysis requirement:</p>
-<ol>
-<li>
-<p>Ontario's Covid-19 Pandemic and Vaccination trends from 25-January-2020 to 17-July-2021</p>
-<ul>
-<li>
-<a href="https://covid19tracker.ca/vaccinationtracker.html">Data Source</a> </li>
-</ul>
-</li>
-<li>
-<p>Confirmed Positive Cases in cities within Ontario (with age)</p>
-<ul>
-<li><a href="https://data.ontario.ca/dataset/confirmed-positive-cases-of-covid-19-in-ontario">Data Source</a></li>
-<li><a href="https://data.ontario.ca/dataset/confirmed-positive-cases-of-covid-19-in-ontario">Data Dictionary</a></li>
-</ul>
-</li>
-<li>
-<p>Ontario Vaccination data (by age)</p>
-<ul>
-<li>
-<a href="https://data.ontario.ca/en/dataset/covid-19-vaccine-data-in-ontario/resource/775ca815-5028-4e9b-9dd4-6975ff1be021">Data Source</a>  </li>
-<li><a href="https://data.ontario.ca/en/dataset/covid-19-vaccine-data-in-ontario">Data Dictionary</a></li>
-</ul>
-</li>
-<li>
-<p>Google Covid-19 mobility report</p>
-<ul>
-<li><a href="https://www.google.com/covid19/mobility/">Data Source</a></li>
-<li>
-<a href="https://www.google.com/covid19/mobility/data_documentation.html?hl=en">Data Dictionary</a>
-Note: The baseline in mobility data is the median value, for the corresponding day of the week, during the 5-week period Jan 3–Feb 6, 2020</li>
-</ul>
-</li>
-</ol>
-<hr>
-<h2 id="Data-understanding">
-<a class="anchor" href="#Data-understanding" aria-hidden="true"><span class="octicon octicon-link"></span></a>Data understanding<a class="anchor-link" href="#Data-understanding"> </a>
-</h2>
-<p>Features Explored In Ontario's Covid-19 Pandemic and Vaccination trends from 25-January-2020 to 17-July-2021:</p>
-<ol>
-<li>
-<code>date</code> - The date of activities captured in the dataset</li>
-<li>
-<code>change_cases</code> - The number of new cases as of each day</li>
-<li>
-<code>change_fatalities</code> - The number of new hospitalizations as of each day</li>
-<li>
-<code>change_tests</code> - The number of new tests as of each day</li>
-<li>
-<code>change_hospitalizations</code> - The number of new hospitalizations as of each day</li>
-<li>
-<code>change_criticals</code> - The number of new critcal cases as of each day</li>
-<li>
-<code>change_recoveries</code> - The number of recovered patients as of each day</li>
-<li>
-<code>change_vaccinations</code> - The number of new single-dosed vaccinated people as of each day</li>
-<li>
-<code>change_vaccinated</code> - The number of fully vaccinated people as of each day</li>
-<li>
-<code>change_vaccines_distributed</code> - The number of vaccines made available to the province as of each day</li>
-<li>
-<code>total_cases</code> - Total number of covid cases </li>
-<li>
-<code>total_fatalities</code> - Total number of covid-related fatalities </li>
-<li>
-<code>total_tests</code> - Total number of covid tests </li>
-<li>
-<code>total_hospitalizations</code> - Total number of covid-related hospitalizations </li>
-<li>
-<code>total_critcals</code> - Total number of covid-related critical care patients</li>
-<li>
-<code>total_recoveries</code> - Total number of recoveries</li>
-<li>
-<code>total_vaccinations</code> - Total number of covid vaccinations (first dose)</li>
-<li>
-<code>total_vaccinated</code> - Total number of fully vaccinated people</li>
-<li>
-<code>total_vaccines_distributed</code> - Total number of vaccines distributed across the province</li>
-</ol>
-<p><strong>NOTE:</strong> Other Datasets used are accompanied with links to their dictionaries above.</p>
-<p><br></p>
-
-</div>
-</div>
-</div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
