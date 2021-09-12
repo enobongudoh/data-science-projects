@@ -9,8 +9,8 @@
 <meta property="og:title" content="Effectiveness of Covid-19 management and preventative measures in Ontario, Canada." />
 <meta name="author" content="Enobong Udoh" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="An analysis of how Ontario’s covid-19 eradication strategy compares to it’s reality." />
-<meta property="og:description" content="An analysis of how Ontario’s covid-19 eradication strategy compares to it’s reality." />
+<meta name="description" content="The data exploration and analysis part of the project" />
+<meta property="og:description" content="The data exploration and analysis part of the project" />
 <link rel="canonical" href="https://enobongudoh.github.io/data-science-projects/covid-19/ontario/canada/2021/09/09/eu-ontario-data-exploration.html" />
 <meta property="og:url" content="https://enobongudoh.github.io/data-science-projects/covid-19/ontario/canada/2021/09/09/eu-ontario-data-exploration.html" />
 <meta property="og:site_name" content="Data Science Portfolio" />
@@ -18,7 +18,7 @@
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2021-09-09T00:00:00-05:00" />
 <script type="application/ld+json">
-{"datePublished":"2021-09-09T00:00:00-05:00","url":"https://enobongudoh.github.io/data-science-projects/covid-19/ontario/canada/2021/09/09/eu-ontario-data-exploration.html","@type":"BlogPosting","image":"https://enobongudoh.github.io/data-science-projects/images/project_thumbnails/ontario_covid.png","headline":"Effectiveness of Covid-19 management and preventative measures in Ontario, Canada.","dateModified":"2021-09-09T00:00:00-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://enobongudoh.github.io/data-science-projects/covid-19/ontario/canada/2021/09/09/eu-ontario-data-exploration.html"},"author":{"@type":"Person","name":"Enobong Udoh"},"description":"An analysis of how Ontario’s covid-19 eradication strategy compares to it’s reality.","@context":"https://schema.org"}</script>
+{"datePublished":"2021-09-09T00:00:00-05:00","url":"https://enobongudoh.github.io/data-science-projects/covid-19/ontario/canada/2021/09/09/eu-ontario-data-exploration.html","@type":"BlogPosting","image":"https://enobongudoh.github.io/data-science-projects/images/project_thumbnails/ontario_covid.png","headline":"Effectiveness of Covid-19 management and preventative measures in Ontario, Canada.","dateModified":"2021-09-09T00:00:00-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://enobongudoh.github.io/data-science-projects/covid-19/ontario/canada/2021/09/09/eu-ontario-data-exploration.html"},"author":{"@type":"Person","name":"Enobong Udoh"},"description":"The data exploration and analysis part of the project","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/data-science-projects/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://enobongudoh.github.io/data-science-projects/feed.xml" title="Data Science Portfolio" /><link rel="shortcut icon" type="image/x-icon" href="/data-science-projects/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
@@ -73,7 +73,7 @@ window.onload = wrap_img;
         <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">Effectiveness of Covid-19 management and preventative measures in Ontario, Canada.</h1><p class="page-description">An analysis of how Ontario's covid-19 eradication strategy compares to it's reality.</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2021-09-09T00:00:00-05:00" itemprop="datePublished">
+    <h1 class="post-title p-name" itemprop="name headline">Effectiveness of Covid-19 management and preventative measures in Ontario, Canada.</h1><p class="page-description">The data exploration and analysis part of the project</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2021-09-09T00:00:00-05:00" itemprop="datePublished">
         Sep 9, 2021
       </time>• 
           <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -140,7 +140,7 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h3"><a href="#How-does-the-proportion-of-affected-groups-compare-with-the-those-getting-vaccinated?">How does the proportion of affected groups compare with the those getting vaccinated? </a></li>
 <li class="toc-entry toc-h3"><a href="#How-has-the-pandemic-impacted-the-community's-mobility?--Is-there-an-observable-effect-on-the-number-of-cases-in-the-province?">How has the pandemic impacted the community&#39;s mobility?  Is there an observable effect on the number of cases in the province? </a></li>
 <li class="toc-entry toc-h3"><a href="#Conclusions">Conclusions </a></li>
-<li class="toc-entry toc-h3"><a href="#Recommendations:">Recommendations: </a></li>
+<li class="toc-entry toc-h3"><a href="#Recommendations">Recommendations </a></li>
 </ul>
 </li>
 </ul><!--
@@ -4426,8 +4426,8 @@ While cases are higher with the younger population, vaccination efforts have a h
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Recommendations:">
-<a class="anchor" href="#Recommendations:" aria-hidden="true"><span class="octicon octicon-link"></span></a>Recommendations:<a class="anchor-link" href="#Recommendations:"> </a>
+<h3 id="Recommendations">
+<a class="anchor" href="#Recommendations" aria-hidden="true"><span class="octicon octicon-link"></span></a>Recommendations<a class="anchor-link" href="#Recommendations"> </a>
 </h3>
 <p>In the event of future pandemics, to overcome it's impact faster, it is recommended that Ontario;</p>
 <ul>
