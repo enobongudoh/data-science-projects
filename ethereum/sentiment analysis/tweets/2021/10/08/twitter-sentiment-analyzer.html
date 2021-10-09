@@ -1413,7 +1413,50 @@ Name: sentiment, dtype: int64</pre>
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">'sentiment'</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">keys</span><span class="p">(),</span> <span class="n">y</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">'sentiment'</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(),</span> <span class="n">color</span><span class="o">=</span><span class="p">[</span><span class="s1">'Neutral'</span><span class="p">,</span><span class="s2">"Positive"</span><span class="p">,</span><span class="s2">"Negative"</span><span class="p">],</span> <span class="n">title</span><span class="o">=</span><span class="s2">"Sentiment Analysis Bar Plot"</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">cummulative_sentiment_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">val_count</span><span class="p">)</span>
+<span class="n">cummulative_sentiment_df</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># renaming the columns </span>
+<span class="n">cummulative_sentiment_df</span><span class="o">.</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">'sentiment'</span><span class="p">,</span> <span class="s1">'score'</span><span class="p">]</span>
+<span class="n">cummulative_sentiment_df</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">cummulative_sentiment_df</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">'sentiment'</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">'score'</span><span class="p">,</span> 
+            <span class="n">color</span><span class="o">=</span><span class="s1">'sentiment'</span><span class="p">,</span> <span class="n">color_discrete_map</span><span class="o">=</span><span class="p">{</span>
+                <span class="s2">"Neutral"</span><span class="p">:</span> <span class="s2">"orange"</span><span class="p">,</span>
+                <span class="s2">"Positive"</span><span class="p">:</span> <span class="s2">"green"</span><span class="p">,</span>
+                <span class="s2">"Negative"</span><span class="p">:</span> <span class="s2">"red"</span><span class="p">},</span>
+            <span class="n">opacity</span> <span class="o">=</span> <span class="mf">0.9</span><span class="p">,</span>
+            <span class="n">labels</span> <span class="o">=</span><span class="p">{</span><span class="s1">'x'</span><span class="p">:</span><span class="s1">'Sentiment'</span><span class="p">,</span><span class="s1">'y'</span><span class="p">:</span><span class="s1">'Count'</span><span class="p">},</span> <span class="n">title</span><span class="o">=</span><span class="s2">"Sentiment Analysis Bar Plot"</span><span class="p">,</span> 
+            <span class="n">template</span> <span class="o">=</span> <span class="s2">"plotly_dark"</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span>
+      <span class="n">title</span><span class="o">=</span><span class="p">{</span>
+        <span class="s1">'text'</span><span class="p">:</span> <span class="s2">"Sentiment Analysis of tweets on Ethereum"</span><span class="p">,</span>
+        <span class="s1">'y'</span><span class="p">:</span><span class="mf">0.9</span><span class="p">,</span>
+        <span class="s1">'x'</span><span class="p">:</span><span class="mf">0.46</span><span class="p">,</span>
+        <span class="s1">'xanchor'</span><span class="p">:</span> <span class="s1">'center'</span><span class="p">,</span>
+        <span class="s1">'yanchor'</span><span class="p">:</span> <span class="s1">'top'</span><span class="p">,</span>
+        <span class="s1">'font'</span><span class="p">:</span> <span class="nb">dict</span><span class="p">(</span>
+        <span class="n">family</span><span class="o">=</span><span class="s2">"Courier New, monospace"</span><span class="p">,</span>
+        <span class="n">size</span><span class="o">=</span><span class="mi">24</span><span class="p">,</span>
+        <span class="n">color</span><span class="o">=</span><span class="s2">"White"</span>
+        <span class="p">)</span>
+        <span class="p">}</span>
+<span class="p">)</span>
 <span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 
